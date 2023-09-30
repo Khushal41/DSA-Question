@@ -1,0 +1,11 @@
+Question :- Swap Two Numbers
+Link :- https://www.codingninjas.com/studio/problems/swap-two-numbers_1112577
+
+void swapNumber(int &a, int &b) {
+  // Write your code here.
+
+  int temp = a;
+  a = b;
+  b = temp;
+  
+}
