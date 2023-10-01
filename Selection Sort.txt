@@ -1,0 +1,28 @@
+Question :- Selection Sort
+Link:- https://www.codingninjas.com/studio/problems/selection-sort_981162
+
+#include <bits/stdc++.h> 
+#include <vector>
+void selectionSort(vector<int>& arr, int n)
+{  
+    // selection sort
+    // outer loop -> (n-1) rounds
+    for (int i = 0; i < n - 1; i++)
+    // for outer loop
+    {
+
+        int minIndex = i;
+        // inner Loop -> index of minimum element in range i->n
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[minIndex])
+            {
+                // new minimum, then store
+                minIndex = j;
+            }
+        }
+        // swap
+        swap(arr[i], arr[minIndex]);
+    }
+
+}

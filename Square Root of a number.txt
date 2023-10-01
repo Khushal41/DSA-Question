@@ -1,0 +1,43 @@
+Question :- Square Root of a number
+Link :- https://www.codingninjas.com/studio/problems/square-root-integral_893351
+
+int floorSqrt(int n) {
+  //   int start = 0, end = n;
+  //   long long mid = start + (end - start) / 2;
+  //   int ans = -1;
+  //   while (start <= end) {
+  //     if (mid * mid == n)
+  //       return mid;
+  //     else if (mid * mid > n)
+  //       // left ssearch
+  //       end = mid - 1;
+  //     else {
+  //       ans = mid;
+  //       //   right search
+  //       start = mid + 1;
+  //     }
+  //     mid = start + (end - start) / 2;
+  //   }
+  //   return ans;
+==================Or======================
+  int low = 1;
+  int high = n;
+  int ans = -1;
+
+  while (low <= high) {
+    long long int mid = (low + high) / 2;
+    long long int sqr = mid * mid;
+
+    if (sqr == n)
+      return mid;
+    else if (sqr < n) {
+        // right search if sqare is grater than mid;
+      ans = mid;
+      low = mid + 1;
+    } else {
+        // left  search with square is less than mid  
+      high = mid - 1;
+    }
+  }
+    return ans;
+}
