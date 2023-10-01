@@ -1,0 +1,26 @@
+Question:- Insertion Sort
+Link:- https://www.codingninjas.com/studio/problems?attempt_status=COMPLETED
+
+#include <bits/stdc++.h>
+void insertionSort(int n, vector<int> &arr) {
+  // Write your code here.
+
+  // insertion sort
+  for (int round = 1; round < n; round++) {
+    // Step A - fetch
+    int val = arr[round];
+    // StepB: Compare
+    int j = round - 1;
+    for (; j >= 0; j--) {
+      if (arr[j] > val) {
+        // Step C: shift
+        arr[j + 1] = arr[j];
+      } else {
+        // rukna hai
+        break;
+      }
+    }
+    // stepD: Copy
+    arr[j + 1] = val;
+  }
+}

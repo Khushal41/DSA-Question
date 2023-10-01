@@ -1,0 +1,59 @@
+Question:- Search Insert Position
+Link:- https://www.codingninjas.com/studio/problems/algorithm-to-find-best-insert-position-in-sorted-array_839813
+
+// int searchInsert(vector<int> &arr, int m) {
+//   // Write your code here.
+//   int n = arr.size();
+//   for (int i = 0; i < n; i++) {
+//     if (arr[i] == m) {
+//       return i;
+//     } else if (arr[i] > m) {
+//       return i;
+//     }
+//   }
+//   return n;
+// }
+----------------OR-----------------
+/*
+    Time Complexity - O(log N)
+    Space Complexity - O(1)
+
+    Where 'N' is the size of the array.
+*/
+
+int searchInsert(vector<int>& arr, int m)
+{
+    int lo = 0;
+    int hi = arr.size() - 1;
+    int ans = -1;
+
+    while (lo <= hi)
+    {
+        int mid = lo + (hi - lo) / 2;
+
+        // Check if element is present.
+        if (arr[mid] == m)
+        {
+            return mid;
+        }
+
+        // Check in left half.
+        if (arr[mid] > m)
+        {
+            hi = mid - 1;
+            ans = mid;
+        }
+        // Check in right half.
+        else
+        {
+            lo = mid + 1;
+        }
+    }
+
+    if (ans == -1)
+    {
+        ans = arr.size();
+    }
+
+    return ans;
+}

@@ -1,0 +1,41 @@
+Question:- Left Rotate an Array by One
+Link:- https://www.codingninjas.com/studio/problems/left-rotate-an-array-by-one_5026278
+
+// #include <bits/stdc++.h>
+// vector<int> rotateArray(vector<int> &arr, int n) {
+//   // Write your code here.
+//   int temp = arr[0];
+//   for (int i = 1; i < n; i++) {
+//     arr[i - 1] = arr[i];
+//   }
+//   arr[n - 1] = temp;
+//   return arr;
+// }
+
+// // Time o(n)
+// // space o(1)
+
+
+/*
+    Time complexity: O( N )
+    Space complexity: O( 1 )
+
+    Where 'N' is the size of array.
+*/
+
+vector < int > rotateArray(vector < int > & arr, int n) {
+
+    // Create a temporary variable 'temp' and store the value of  'arr[0]' in it.
+    int firstElement = arr[0];
+
+    // Now replace value at i with value at (i+1)th position in the array where 0<=i<=n-2.
+    for (int i = 0; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    // Store the 0th value of 'Arr' at (n-1)th using the 'temp'.
+    arr[n - 1] = firstElement;
+
+    // Return the 'arr'.
+    return arr;
+}
